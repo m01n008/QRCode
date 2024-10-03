@@ -98,7 +98,7 @@ class QRScannerView: Fragment() {
             processCameraProvider.bindToLifecycle(this, cameraSelector, preview, imageAnalysis)
         }
         catch (e: Exception){
-            Log.e(TAG,"Camera usecase binding failed: ${e.message}");
+            Log.e(TAG,"Camera usecase binding failed: ${e.message}")
         }
 
     }
