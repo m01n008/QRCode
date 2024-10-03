@@ -1,6 +1,5 @@
 package com.moin.qrcode.ui.screens.QRScanner
 
-import android.widget.Toast
 import androidx.annotation.OptIn
 import androidx.camera.core.ExperimentalGetImage
 import androidx.camera.core.ImageAnalysis

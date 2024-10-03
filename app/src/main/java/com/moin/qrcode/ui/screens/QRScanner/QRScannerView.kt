@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.util.Log
-import android.util.Size
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +13,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
+import androidx.camera.core.resolutionselector.ResolutionSelector
+import androidx.camera.core.resolutionselector.ResolutionStrategy
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
@@ -82,7 +83,8 @@ class QRScannerView: Fragment() {
             }
 
         imageAnalysis = ImageAnalysis.Builder()
-            .setTargetResolution(Size(1080,720))
+            .setResolutionSelector(ResolutionSelector.Builder().setResolutionStrategy(
+                ResolutionStrategy.HIGHEST_AVAILABLE_STRATEGY).build())
             .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
             .build()
 
@@ -102,7 +104,6 @@ class QRScannerView: Fragment() {
     }
 
     private fun handleQRCodeResult(result: String){
-        //Toast.makeText(requireContext(),result,Toast.LENGTH_SHORT).show()
         fragmentQrScannerBinding.qrRetrievedText.text = result
         fragmentQrScannerBinding.qrRetrievedText.movementMethod = ScrollingMovementMethod()
     }
