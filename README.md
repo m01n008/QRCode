@@ -78,4 +78,4 @@ Or build from the command line:
 
 ## License
 
-No license file is currently included in this repository.
+Released under the [MIT License](LICENSE).
